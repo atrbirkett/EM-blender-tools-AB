@@ -16,7 +16,7 @@ def menu_func(self, context):
 
 def is_reconstruction_us(node):
     is_rec = False
-    if node.shape in ["parallelogram", "ellipse", "hexagon", "octagon"]:
+    if node.shape in ["rectangle", "triangle", "trapezoid", "roundrectangle", "hexagon", "octagon"]:
         is_rec = True
 
     return is_rec
@@ -400,8 +400,7 @@ def EM_check_node_type(node_element):
     return node_type
 
 def EM_check_node_us(node_element):
-    US_nodes_list = ['rectangle', 'parallelogram',
-                     'ellipse', 'hexagon', 'octagon', 'roundrectangle']
+    US_nodes_list = ['rectangle', 'triangle', 'trapezoid', 'roundrectangle', 'hexagon', 'octagon']
     my_nodename, my_node_description, my_node_url, my_node_shape, my_node_y_pos, my_node_fill_color = EM_extract_node_name(node_element)
     #print(my_node_shape)
     if my_node_shape in US_nodes_list:
@@ -841,17 +840,21 @@ def set_materials_using_EM_list(context):
                 ob_material_name = 'US'
             if current_ob_em_list.shape == 'ellipse_white':
                 ob_material_name = 'US'
-            if current_ob_em_list.shape ==  'ellipse':
-                ob_material_name = 'USVn'
-            if current_ob_em_list.shape ==  'parallelogram':
+            if current_ob_em_list.shape ==  'parallelogram_black':
                 ob_material_name = 'USVs'
-            if current_ob_em_list.shape ==  'hexagon':
+            if current_ob_em_list.shape ==  'triangle_black':
+                ob_material_name = 'USVs'
+            if current_ob_em_list.shape ==  'roundrectangle_black':
+                ob_material_name = 'USVs'
+            if current_ob_em_list.shape ==  'hexagon_gray':
                 ob_material_name = 'USVn'
-            if current_ob_em_list.shape ==  'octagon':
+            if current_ob_em_list.shape ==  'Triangle_gray':
                 ob_material_name = 'VSF'
-            if current_ob_em_list.shape ==  'octagon_white':
+            if current_ob_em_list.shape ==  'Triangle_white':
                 ob_material_name = 'SF'
-            if current_ob_em_list.shape == 'roundrectangle':
+            if current_ob_em_list.shape == 'roundrectangle_silver':
+                ob_material_name = 'USD'
+            if current_ob_em_list.shape == 'octogon_silver':
                 ob_material_name = 'USD'
             mat = bpy.data.materials[ob_material_name]
             current_ob_scene.data.materials.clear()
