@@ -873,33 +873,33 @@ def EM_mat_get_RGB_values(matname):
         G = 0.033
         B = 0.033
     elif matname == "USVn":
-        R = 0.031
-        G = 0.191 
-        B = 0.026
+        R = 0.204
+        G = 0.229 
+        B = 0.255
     elif matname == "USVs":
-        R = 0.018
-        G = 0.275
-        B = 0.799
+        R = 0.224
+        G = 0.224
+        B = 0.224
     elif matname == "VSF":
         #errati su articolo five steps
         #R = 0.694
         #G = 0.623
         #B = 0.380
-        R = 0.439
-        G = 0.346
-        B = 0.119
+        R = 0.255
+        G = 0.204
+        B = 0.229
     elif matname == "SF":
         #errati su articolo five steps
         #R = 0.847
         #G = 0.741
         #B = 0.188
-        R = 0.686
-        G = 0.508
-        B = 0.029
+        R = 0.255
+        G = 0.153
+        B = 0.204
     elif matname == "USD":
-        R = 0.549
-        G = 0.103
-        B = 0.000
+        R = 0.192
+        G = 0.192
+        B = 0.192
     return R, G, B
 
 def hex_to_rgb(value):
