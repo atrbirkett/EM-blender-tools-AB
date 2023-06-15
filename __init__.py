@@ -1,5 +1,5 @@
 '''
-Copyright (C) 2022 Emanuel Demetrescu
+Copyright (C) 2022 Emanuel Demetrescu (custom edits by Alex Birkett)
 
 Created by EMANUEL DEMETRESCU 2018-2022
 emanuel.demetrescu@cnr.it
@@ -19,9 +19,9 @@ emanuel.demetrescu@cnr.it
 '''
 
 bl_info = {
-    "name": "EM tools",
+    "name": "EM tools (AB edit)",
     "description": "Blender tools for Extended Matrix",
-    "author": "E. Demetrescu",
+    "author": "E. Demetrescu (custom edits by Alex Birkett)",
     "version": (1, 3, 2),
     "blender": (3, 3, 4),
 #     "location": "3D View > Toolbox",
