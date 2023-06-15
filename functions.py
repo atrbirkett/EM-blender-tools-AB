@@ -838,23 +838,21 @@ def set_materials_using_EM_list(context):
             ob_material_name = 'US'
             if current_ob_em_list.shape == 'rectangle':
                 ob_material_name = 'US'
-            if current_ob_em_list.shape == 'ellipse_white':
+            if current_ob_em_list.shape == 'ellipse':
                 ob_material_name = 'US'
             if current_ob_em_list.shape ==  'parallelogram_black':
                 ob_material_name = 'USVs'
-            if current_ob_em_list.shape ==  'triangle_black':
-                ob_material_name = 'USVs'
             if current_ob_em_list.shape ==  'roundrectangle_black':
                 ob_material_name = 'USVs'
-            if current_ob_em_list.shape ==  'hexagon_gray':
+            if current_ob_em_list.shape ==  'hexagon':
                 ob_material_name = 'USVn'
-            if current_ob_em_list.shape ==  'Triangle_gray':
+            if current_ob_em_list.shape ==  'triangle_black':
                 ob_material_name = 'VSF'
-            if current_ob_em_list.shape ==  'Triangle_white':
+            if current_ob_em_list.shape ==  'triangle':
                 ob_material_name = 'SF'
-            if current_ob_em_list.shape == 'roundrectangle_silver':
+            if current_ob_em_list.shape == 'roundrectangle':
                 ob_material_name = 'USD'
-            if current_ob_em_list.shape == 'octogon_silver':
+            if current_ob_em_list.shape == 'octogon':
                 ob_material_name = 'USD'
             mat = bpy.data.materials[ob_material_name]
             current_ob_scene.data.materials.clear()
