@@ -16,7 +16,7 @@ def menu_func(self, context):
 
 def is_reconstruction_us(node): 
     is_rec = False
-    if node.shape in ["rectangle", "triangle", "trapezoid", "roundrectangle", "hexagon", "octagon", "elipse"]:
+    if node.shape in ["rectangle", "triangle", "parallelogram", "roundrectangle", "hexagon", "octagon", "elipse"]:
         is_rec = True
 
     return is_rec
