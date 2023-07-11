@@ -815,7 +815,7 @@ def check_material_presence(matname):
 #  #### #### #### #### #### #### ####
 
 def consolidate_EM_material_presence(overwrite_mats):
-    EM_mat_list = ['US', 'USVs', 'USVn', 'VSF', 'SF', 'USVc']
+    EM_mat_list = ['US', 'USVs', 'USVn', 'VSF', 'SF', 'USD']
     for EM_mat_name in EM_mat_list:
         if not check_material_presence(EM_mat_name):
             EM_mat = bpy.data.materials.new(name=EM_mat_name)
@@ -824,7 +824,6 @@ def consolidate_EM_material_presence(overwrite_mats):
             scene = bpy.context.scene
             R, G, B = EM_mat_get_RGB_values(EM_mat_name)
             em_setup_mat_cycles(EM_mat_name,R,G,B)
-
 def set_materials_using_EM_list(context):
     em_list_lenght = len(context.scene.em_list)
     #print(str(em_list_lenght))
@@ -837,31 +836,28 @@ def set_materials_using_EM_list(context):
             current_ob_scene = context.scene.objects[current_ob_em_list.name]
             current_ob_scene.name
             ob_material_name = 'US'
-            #US          
             if current_ob_em_list.shape == 'rectangle':
                 ob_material_name = 'US'
-            if current_ob_em_list.shape ==  'triangle':
-                ob_material_name = 'SF'
-            #USVs
-            if current_ob_em_list.shape ==  'parallelogram':
+            if current_ob_em_list.shape == 'ellipse':
+                ob_material_name = 'US'
+            if current_ob_em_list.shape ==  'parallelogram_black':
                 ob_material_name = 'USVs'
-            if current_ob_em_list.shape ==  'roundrectangle':
+            if current_ob_em_list.shape ==  'roundrectangle_black':
                 ob_material_name = 'USVs'
-            if current_ob_em_list.shape ==  'triangle_black':
-                ob_material_name = 'VSF'
-            #USVn
             if current_ob_em_list.shape ==  'hexagon':
                 ob_material_name = 'USVn'
-            if current_ob_em_list.shape == 'ellipse':
-                ob_material_name = 'USVn'
-            #USVc
+            if current_ob_em_list.shape ==  'triangle_black':
+                ob_material_name = 'VSF'
+            if current_ob_em_list.shape ==  'triangle':
+                ob_material_name = 'SF'
+            if current_ob_em_list.shape == 'elipse':
+                ob_material_name = 'USVN'
             if current_ob_em_list.shape == 'octogon':
-                ob_material_name = 'USVc'
+                ob_material_name = 'USD'
             mat = bpy.data.materials[ob_material_name]
             current_ob_scene.data.materials.clear()
             current_ob_scene.data.materials.append(mat)
         counter += 1
-
 def proxy_shader_mode_function(self, context):
     scene = context.scene
     if scene.proxy_shader_mode is True:
@@ -872,29 +868,37 @@ def proxy_shader_mode_function(self, context):
 
 def EM_mat_get_RGB_values(matname):
     if matname == "US":
-        R = 0.225
-        G = 0.225
-        B = 0.225
-    elif matname == "USVs":
-        R = 0.000
-        G = 0.112
-        B = 0.225      
+        R = 0.328
+        G = 0.033
+        B = 0.033
     elif matname == "USVn":
-        R = 0.137
-        G = 0.205 
-        B = 0.102
+        R = 0.204
+        G = 0.229 
+        B = 0.255
+    elif matname == "USVs":
+        R = 0.224
+        G = 0.224
+        B = 0.224
     elif matname == "VSF":
-        R = 0.146
-        G = 0.000
-        B = 0.147
+        #errati su articolo five steps
+        #R = 0.694
+        #G = 0.623
+        #B = 0.380
+        R = 0.255
+        G = 0.204
+        B = 0.229
     elif matname == "SF":
-        R = 0.146
-        G = 0.0
-        B = 0.147
-    elif matname == "USVc":
-        R = 0.200
-        G = 0.047
-        B = 0.019
+        #errati su articolo five steps
+        #R = 0.847
+        #G = 0.741
+        #B = 0.188
+        R = 0.255
+        G = 0.153
+        B = 0.204
+    elif matname == "USD":
+        R = 0.192
+        G = 0.192
+        B = 0.192
     return R, G, B
 
 def hex_to_rgb(value):
