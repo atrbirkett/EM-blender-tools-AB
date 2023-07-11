@@ -748,15 +748,16 @@ def switch_paradata_lists(self, context):
 
 def check_objs_in_scene_and_provide_icon_for_list_element(list_element_name):
     data = bpy.data
-    icon_check = 'RESTRICT_INSTANCED_ON'
+    icon_check = []
     for ob in data.objects:
         if ob.name == list_element_name:
-            icon_check = 'RESTRICT_INSTANCED_OFF'
+            icon_check.append('RESTRICT_INSTANCED_OFF')
+    if not icon_check:
+        icon_check.append('RESTRICT_INSTANCED_ON')
     return icon_check
-
-def update_icons(context,list_type):
+def update_icons(context, list_type):
     scene = context.scene
-    list_path = "scene."+list_type
+    list_path = "scene." + list_type
     for element in eval(list_path):
         element.icon = check_objs_in_scene_and_provide_icon_for_list_element(element.name)
     return
