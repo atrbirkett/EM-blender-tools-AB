@@ -16,7 +16,7 @@ def menu_func(self, context):
 
 def is_reconstruction_us(node): 
     is_rec = False
-    if node.shape in ["rectangle", "triangle", "parallelogram", "roundrectangle", "hexagon", "octagon", "elipse"]:
+    if node.shape in ["rectangle", "triangle", "parallelogram", "roundrectangle", "hexagon", "octagon", "ellipse"]:
         is_rec = True
 
     return is_rec
@@ -400,7 +400,7 @@ def EM_check_node_type(node_element):
     return node_type
 
 def EM_check_node_us(node_element):
-    US_nodes_list = ['rectangle', 'triangle', 'trapezoid', 'roundrectangle', 'hexagon', 'octagon']
+    US_nodes_list = ['rectangle', 'triangle', 'parallelogram', 'roundrectangle', 'hexagon', 'octagon', 'ellipse']
     my_nodename, my_node_description, my_node_url, my_node_shape, my_node_y_pos, my_node_fill_color = EM_extract_node_name(node_element)
     #print(my_node_shape)
     if my_node_shape in US_nodes_list:
@@ -852,7 +852,7 @@ def set_materials_using_EM_list(context):
             #USVn
             if current_ob_em_list.shape ==  'hexagon':
                 ob_material_name = 'USVn'
-            if current_ob_em_list.shape == 'elipse':
+            if current_ob_em_list.shape == 'ellipse':
                 ob_material_name = 'USVn'
             #USVc
             if current_ob_em_list.shape == 'octogon':
