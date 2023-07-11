@@ -851,7 +851,7 @@ def set_materials_using_EM_list(context):
             if current_ob_em_list.shape ==  'triangle':
                 ob_material_name = 'SF'
             if current_ob_em_list.shape == 'elipse':
-                ob_material_name = 'USVN'
+                ob_material_name = 'USVn'
             if current_ob_em_list.shape == 'octogon':
                 ob_material_name = 'USD'
             mat = bpy.data.materials[ob_material_name]
