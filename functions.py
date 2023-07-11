@@ -14,16 +14,16 @@ from bpy.props import (BoolProperty,
 def menu_func(self, context):
     self.layout.separator()
 
-def is_reconstruction_us(node):
+def is_reconstruction_us(node): 
     is_rec = False
     if node.shape in ["rectangle", "triangle", "trapezoid", "roundrectangle", "hexagon", "octagon"]:
         is_rec = True
 
     return is_rec
 
-### #### #### #### #### #### #### #### ####
-##### functions to switch menus in UI  ####
-### #### #### #### #### #### #### #### ####
+### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ######
+##### functions to switch menus in UI and searches for the specified shapes in the yEd file ###
+### #### #### #### #### #### #### #### ####  #### #### #### #### #### #### #### #### #### #####
 
 def sync_Switch_em(self, context):
     scene = context.scene
@@ -33,7 +33,7 @@ def sync_Switch_em(self, context):
         scene.em_settings.em_proxy_sync2_zoom = False
     return
 
-def sync_update_epoch_soloing(self, context):
+def sync_update_epoch_soloing(self, context): ##epoch sync
     scene = context.scene
     soling = False
     for epoch in scene.epoch_list:
@@ -52,10 +52,10 @@ def sync_Switch_proxy(self, context):
     if scene.em_settings.em_proxy_sync2 is True:
         scene.em_settings.em_proxy_sync = False
     return
-
-## #### #### #### #### #### #### #### #### #### #### ####
-##### Functions to check properties of scene objects ####
-## #### #### #### #### #### #### #### #### #### #### ####
+  
+## #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ###
+##### Functions to check properties of scene objects and adds them to the epoch group in blender ####
+## #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ###
 
 def check_if_current_obj_has_brother_inlist(obj_name, list_type):
     scene = bpy.context.scene
@@ -96,11 +96,11 @@ def add_sceneobj_to_epochs():
         if obj.type == 'MESH':
             for USS in scene.em_list:
                 if obj.name == USS.name:
-                    #print("ho trovato un oggetto in scena chiamato "+ str(obj.name)+ " ed un nodo US chiamato: " + str(USS.name))
+                    #print("I found an object in scene called "+ str(obj.name)+ " and a US node called: " + str(USS.name))
                     idx = 0
                     for i in scene.epoch_list:
                         if i.name == USS.epoch:
-                            #print("found "+str(USS.epoch)+ " corrispondende all'indice"+str(idx))
+                            #print("found "+str(USS.epoch)+ " corresponds to'indice"+str(idx))
                             obj.select_set(True)
                             bpy.ops.epoch_manager.add_to_group(group_em_idx=idx)
                             obj.select_set(False)
