@@ -16,7 +16,7 @@ def menu_func(self, context):
 
 def is_reconstruction_us(node): 
     is_rec = False
-    if node.shape in ["rectangle", "triangle", "trapezoid", "roundrectangle", "hexagon", "octagon"]:
+    if node.shape in ["rectangle", "triangle", "trapezoid", "roundrectangle", "hexagon", "octagon", "elipse"]:
         is_rec = True
 
     return is_rec
@@ -851,8 +851,8 @@ def set_materials_using_EM_list(context):
                 ob_material_name = 'VSF'
             if current_ob_em_list.shape ==  'triangle':
                 ob_material_name = 'SF'
-            if current_ob_em_list.shape == 'roundrectangle':
-                ob_material_name = 'USD'
+            if current_ob_em_list.shape == 'elipse':
+                ob_material_name = 'USVN'
             if current_ob_em_list.shape == 'octogon':
                 ob_material_name = 'USD'
             mat = bpy.data.materials[ob_material_name]
