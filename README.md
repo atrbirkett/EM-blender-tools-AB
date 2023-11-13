@@ -4,6 +4,6 @@ A Fork of the Extended Matrix Blender plugin created by Emanuel Demetrescu adapt
 
 The website for the official version of EMTools produced by Emanuel Demetrescu [can be found here](http://extendedmatrix.org), and all support and further development should be directed towards his work. 
 
-*This* release of the software can be cited using the DOI [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5957132.svg)](10.6084/m9.figshare.24552892)
+*This* release of the software can be cited using the DOI: [10.6084/m9.figshare.24552889](https://figshare.com/articles/software/VI-Suite_Output_Data_Editor/24552889)
 
 **The official** software can be cited using the DOI [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5957132.svg)](https://doi.org/10.5281/zenodo.5957132)
